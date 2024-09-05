@@ -1,0 +1,4 @@
+%{
+  "excoveralls": {:hex, :excoveralls, "0.18.2", "86efd87a0676a3198ff50b8c77620ea2f445e7d414afa9ec6c4ba84c9f8bdcc2", [:mix], [{:castore, "~> 1.0", [hex: :castore, repo: "hexpm", optional: true]}, {:jason, "~> 1.0", [hex: :jason, repo: "hexpm", optional: false]}], "hexpm", "230262c418f0de64077626a498bd4fdf1126d5c2559bb0e6b43deac3005225a4"},
+  "jason": {:hex, :jason, "1.4.4", "b9226785a9aa77b6857ca22832cffa5d5011a667207eb2a0ad56adb5db443b8a", [:mix], [{:decimal, "~> 1.0 or ~> 2.0", [hex: :decimal, repo: "hexpm", optional: true]}], "hexpm", "c5eb0cab91f094599f94d55bc63409236a8ec69a21a67814529e8d5f6cc90b3b"},
+}
