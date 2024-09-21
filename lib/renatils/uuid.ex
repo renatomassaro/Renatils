@@ -1,4 +1,5 @@
 defmodule Renatils.UUID do
+  @spec is_valid?(binary()) :: boolean()
   @doc """
   Validates that the UUID is somewhat correct. By no means it's supposed to validate according to
   the specifications. Just make sure it has 36 hexadecimal characters + dashes, with the usual
