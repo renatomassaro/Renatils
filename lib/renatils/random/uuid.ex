@@ -9,7 +9,7 @@ defmodule Renatils.Random.UUID do
   @compile {:inline, e: 1}
 
   @spec uuid(opts :: list()) :: t
-  def uuid(_), do: encode(generate())
+  def uuid(_ \\ []), do: encode(generate())
 
   @spec generate() :: raw
   defp generate() do
