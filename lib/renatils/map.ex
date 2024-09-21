@@ -31,7 +31,8 @@ defmodule Renatils.Map do
   def stringify_keys(map) when is_map(map) do
     Enum.reduce(map, %{}, fn {k, v}, acc ->
       cond do
-        is_atom(k) or is_number(k) ->
+        # `nil` and `true` are atoms, but we don't want to stringify them
+        (is_atom(k) or is_number(k)) and not (is_boolean(k) or is_nil(k)) ->
           Map.put(acc, "#{k}", stringify_keys(v))
 
         is_binary(k) ->
