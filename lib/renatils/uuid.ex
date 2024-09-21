@@ -1,10 +1,11 @@
 defmodule Renatils.UUID do
+  @spec is_valid?(binary()) :: boolean()
   @doc """
   Validates that the UUID is somewhat correct. By no means it's supposed to validate according to
   the specifications. Just make sure it has 36 hexadecimal characters + dashes, with the usual
   format one would expect in an UUID.
   """
-  def is_valid?(uuid) do
+  def is_valid?(uuid) when is_binary(uuid) do
     with true <- 36 == String.length(uuid) do
       case String.split(uuid, "-") do
         [a, b, c, d, e] ->

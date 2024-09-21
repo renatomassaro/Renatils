@@ -1,4 +1,5 @@
 defmodule Renatils.Map do
+  @spec atomify_keys(map(), opts :: list()) :: map()
   def atomify_keys(map, opts \\ [])
 
   def atomify_keys(map, opts) when is_map(map) do
@@ -24,14 +25,17 @@ defmodule Renatils.Map do
   def atomify_keys(v, _), do: v
 
   # DOCME
+  @spec safe_atomify_keys(map()) :: map()
   def safe_atomify_keys(map),
     do: atomify_keys(map, with_existing_atom: true)
 
   # DOCME
+  @spec stringify_keys(map()) :: map()
   def stringify_keys(map) when is_map(map) do
     Enum.reduce(map, %{}, fn {k, v}, acc ->
       cond do
-        is_atom(k) or is_number(k) ->
+        # `nil` and `true` are atoms, but we don't want to stringify them
+        (is_atom(k) or is_number(k)) and not (is_boolean(k) or is_nil(k)) ->
           Map.put(acc, "#{k}", stringify_keys(v))
 
         is_binary(k) ->
