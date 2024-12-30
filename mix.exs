@@ -1,7 +1,7 @@
 defmodule Renatils.Mixfile do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.1.3"
 
   def project do
     [
@@ -38,20 +38,19 @@ defmodule Renatils.Mixfile do
 
   defp package do
     [
-      files: ["lib", "priv", "mix.exs", "README.md", "LICENSE.md"],
+      files: ["lib", "mix.exs", "README.md", "LICENSE.md"],
       maintainers: ["Renato Massaro"],
       licenses: ["MIT"],
-      links: %{
-        Changelog: "todo",
-        GitHub: "todo"
-      }
+      links: %{}
     ]
   end
 
   def deps do
     [
+      {:decimal, "~> 2.3", optional: true},
       {:dialyxir, "~> 1.4", only: [:dev], runtime: false},
-      {:excoveralls, "~> 0.18.2", only: :test}
+      {:excoveralls, "~> 0.18.2", only: :test},
+      {:mix_test_watch, "~> 1.2", only: [:dev, :test], runtime: false}
     ]
   end
 
