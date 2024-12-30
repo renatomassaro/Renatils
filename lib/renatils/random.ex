@@ -7,4 +7,5 @@ defmodule Renatils.Random do
 
   defdelegate int(opts \\ []), to: Random.Int
   defdelegate uuid(opts \\ []), to: Random.UUID
+  defdelegate ip(opts \\ []), to: Random.IP
 end
