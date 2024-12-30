@@ -1,7 +1,7 @@
 defmodule Renatils.Mixfile do
   use Mix.Project
 
-  @version "0.1.2"
+  @version "0.1.3"
 
   def project do
     [
@@ -47,6 +47,7 @@ defmodule Renatils.Mixfile do
 
   def deps do
     [
+      {:decimal, "~> 2.3", optional: true},
       {:dialyxir, "~> 1.4", only: [:dev], runtime: false},
       {:excoveralls, "~> 0.18.2", only: :test}
     ]
