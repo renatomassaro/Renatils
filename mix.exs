@@ -49,7 +49,8 @@ defmodule Renatils.Mixfile do
     [
       {:decimal, "~> 2.3", optional: true},
       {:dialyxir, "~> 1.4", only: [:dev], runtime: false},
-      {:excoveralls, "~> 0.18.2", only: :test}
+      {:excoveralls, "~> 0.18.2", only: :test},
+      {:mix_test_watch, "~> 1.2", only: [:dev, :test], runtime: false}
     ]
   end
 
