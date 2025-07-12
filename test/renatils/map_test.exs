@@ -62,4 +62,15 @@ defmodule Renatils.MapTest do
       end)
     end
   end
+
+  describe "merge_if/3" do
+    test "merges both maps if condition is true" do
+      assert %{a: 1, b: 2} == Renatils.Map.merge_if(%{a: 1}, %{b: 2}, true)
+      assert %{a: 2, b: 3} == Renatils.Map.merge_if(%{a: 1}, %{a: 2, b: 3}, true)
+    end
+
+    test "performs a no-op if condition is false" do
+      assert %{a: 1} == Renatils.Map.merge_if(%{a: 1}, %{b: 2}, false)
+    end
+  end
 end

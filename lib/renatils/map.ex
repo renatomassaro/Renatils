@@ -48,4 +48,17 @@ defmodule Renatils.Map do
   end
 
   def stringify_keys(v), do: v
+
+  @doc """
+  Merges `map2` onto `map1` if `condition` is truthy.
+  """
+  @spec merge_if(map(), map(), boolean()) ::
+          map()
+  def merge_if(map1, map2, condition) do
+    if condition do
+      Map.merge(map1, map2)
+    else
+      map1
+    end
+  end
 end
