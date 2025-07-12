@@ -61,4 +61,23 @@ defmodule Renatils.Map do
       map1
     end
   end
+
+  @doc """
+  Recursively iterates over the given input, transforming any structs it finds into a map.
+  """
+  @spec destructify(term) ::
+          term
+  def destructify(struct) when is_struct(struct) do
+    struct
+    |> Map.from_struct()
+    |> destructify()
+  end
+
+  def destructify(map) when is_map(map) do
+    Enum.reduce(map, %{}, fn {k, v}, acc ->
+      Map.put(acc, destructify(k), destructify(v))
+    end)
+  end
+
+  def destructify(v), do: v
 end
